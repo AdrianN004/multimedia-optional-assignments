@@ -1,13 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="styles/style.css" rel="stylesheet" type="text/css">
-    <script src="scripts/chart.js" type="text/javascript"></script>
-</head>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link href="styles/style.css" rel="stylesheet" type="text/css">
+        <script src="scripts/chart.js" type="text/javascript"></script>
+    </head>
+
 <body>
-    <canvas id="chartCanvas" width="900" height="600"></canvas>
+    <div class="container">
+        <div class="controls-panel">
+            <h3>Controls</h3>
+            <div class="control-group">
+                <label>Animation:</label>
+                <button id="startPauseBtn">Pause</button>
+                <button id="resetBtn">Reset</button>
+            </div>
+            <div class="control-group">
+                <label for="speedRange">Speed (ms):</label>
+                <input type="range" id="speedRange" min="100" max="2000" step="100" value="1000">
+                <span id="speedValue">1000</span>
+            </div>
+            <div class="control-group">
+                <label>Data Range:</label>
+                <input type="number" id="minVal" placeholder="Min" value="0">
+                <input type="number" id="maxVal" placeholder="Max" value="600">
+            </div>
+            <div class="control-group">
+                <label><input type="checkbox" id="gridToggle" checked> Show Grid</label>
+                <label><input type="checkbox" id="smoothToggle"> Smooth Lines</label>
+            </div>
+            <div class="control-group">
+                <label>Chart Type:</label>
+                <select id="chartType">
+                    <option value="line">Line Chart</option>
+                    <option value="bar">Bar Chart</option>
+                    <option value="area">Area Chart</option>
+                    <option value="scatter">Scatter Plot</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label>Theme:</label>
+                <select id="themeSelect">
+                    <option value="light">Light Mode</option>
+                    <option value="dark">Dark Mode</option>
+                    <option value="high-contrast">High Contrast</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <button id="exportBtn">Export Image</button>
+            </div>
+        </div>
+
+        <div class="chart-area">
+            <canvas id="chartCanvas" width="900" height="600"></canvas>
+            <div id="tooltip" class="tooltip" style="display: none;"></div>
+        </div>
+
+        <div class="stats-panel">
+            <h3>Statistics</h3>
+            <div class="stat-item">Current: <span id="statCurrent">--</span></div>
+            <div class="stat-item">Min: <span id="statMin">--</span></div>
+            <div class="stat-item">Max: <span id="statMax">--</span></div>
+            <div class="stat-item">Avg: <span id="statAvg">--</span></div>
+            <div class="stat-item">Trend: <span id="statTrend">--</span></div>
+        </div>
+    </div>
 </body>
+
 </html>
